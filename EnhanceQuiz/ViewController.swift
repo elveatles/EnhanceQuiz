@@ -14,14 +14,9 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    let questionsPerRound = 4
-    var questionsAsked = 0
-    var correctQuestions = 0
-    var indexOfSelectedQuestion = 0
-    
     var gameSound: SystemSoundID = 0
-    
-    let optionButtonHeight: CGFloat = 60
+    var optionButtons: [UIButton] = []
+    let optionButtonHeight: CGFloat = 40
     
     /*
      Starter implementation:
@@ -34,7 +29,7 @@ class ViewController: UIViewController {
     ]
     */
     
-    let trivia = Trivia()
+    let quizManager = QuizManager()
     
     // MARK: - Outlets
     
@@ -45,6 +40,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        quizManager.startQuiz()
         
         loadGameStartSound()
         playGameStartSound()
@@ -64,36 +61,33 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: trivia.items.count)
-        let item = trivia.items[indexOfSelectedQuestion]
-        questionField.text = item.question
+        let question = quizManager.currentQuestion()
+        questionField.text = question.question
         answerField.isHidden = true
         // Add option buttons
         for view in optionsStack.subviews {
             view.removeFromSuperview()
         }
-        for option in item.options {
+        optionButtons = []
+        for option in question.options {
             let b = QuizButton(title: option)
             b.heightAnchor.constraint(equalToConstant: optionButtonHeight).isActive = true
+            b.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
             optionsStack.addArrangedSubview(b)
-            b.layoutIfNeeded()
+            optionButtons.append(b)
         }
         playAgainButton.isHidden = true
     }
     
     func displayScore() {
-        // Hide the answer uttons
-        // trueButton.isHidden = true
-        // falseButton.isHidden = true
-        
         // Display play again button
         playAgainButton.isHidden = false
         
-        questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
+        questionField.text = "Way to go!\nYou got \(quizManager.correctQuestions) out of \(quizManager.questionsPerRound) correct!"
     }
     
     func nextRound() {
-        if questionsAsked == questionsPerRound {
+        if quizManager.allQuestionsAsked() {
             // Game is over
             displayScore()
         } else {
@@ -116,32 +110,36 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func checkAnswer(_ sender: UIButton) {
-        // Increment the questions asked counter
-        questionsAsked += 1
-        
-        let item = trivia.items[indexOfSelectedQuestion]
-        let correctAnswer = item.answer
-        /*
-        if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
-            correctQuestions += 1
-            questionField.text = "Correct!"
+    @objc func checkAnswer(_ sender: UIButton) {
+        let question = quizManager.currentQuestion()
+        let correct = quizManager.checkAnswer(sender.currentTitle!)
+        answerField.isHidden = false
+        if correct {
+            // Show "Correct!" if correct answer was chosen
+            answerField.text = "Correct!"
+            answerField.textColor = UIColor(red: 0.0, green: 152.0/255.0, blue: 138.0/255.0, alpha: 1.0)
         } else {
-            questionField.text = "Sorry, wrong answer!"
+            // Show the correct answer if an incorrect answer was chosen
+            answerField.text = "Incorrect. Answer is: \(question.answer)"
+            answerField.textColor = UIColor(red: 1.0, green: 87.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+        }
+        
+        // Dim all buttons except for the one that was selected
+        for optionButton in optionsStack.subviews as! [UIButton] {
+            optionButton.backgroundColor = UIColor(red: 0.0, green: 62.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+            var titleColor = UIColor(red: 63.0/255.0, green: 96.0/255.0, blue: 111.0/255.0, alpha: 1.0)
+            if optionButton == sender {
+                titleColor = UIColor.white
+            }
+            optionButton.setTitleColor(titleColor, for: .normal)
         }
         
         loadNextRound(delay: 2)
-        */
     }
     
     
     @IBAction func playAgain(_ sender: UIButton) {
-        // Show the answer buttons
-        // trueButton.isHidden = false
-        // falseButton.isHidden = false
-        
-        questionsAsked = 0
-        correctQuestions = 0
+        quizManager.startQuiz()
         nextRound()
     }
     

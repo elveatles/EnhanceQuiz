@@ -8,13 +8,22 @@
 
 import UIKit
 
+/// A UIButton styled for the Quiz.
 class QuizButton: UIButton {
+    /**
+     Initialize the button with a given title.
+     
+     - Parameter title: The title of the button.
+    */
     convenience init(title: String) {
         self.init(frame: CGRect.zero)
         
         setTitle(title, for: .normal)
     }
     
+    /**
+     Initialize the button with the quiz style.
+    */
     override init(frame: CGRect) {
         super.init(frame: frame)
         
