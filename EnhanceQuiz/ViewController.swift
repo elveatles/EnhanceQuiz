@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     var gameSound: SystemSoundID = 0
     
+    let optionButtonHeight: CGFloat = 60
+    
     /*
      Starter implementation:
      
@@ -37,8 +39,8 @@ class ViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var questionField: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var answerField: UILabel!
+    @IBOutlet weak var optionsStack: UIStackView!
     @IBOutlet weak var playAgainButton: UIButton!
 
     override func viewDidLoad() {
@@ -65,13 +67,24 @@ class ViewController: UIViewController {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: trivia.items.count)
         let item = trivia.items[indexOfSelectedQuestion]
         questionField.text = item.question
+        answerField.isHidden = true
+        // Add option buttons
+        for view in optionsStack.subviews {
+            view.removeFromSuperview()
+        }
+        for option in item.options {
+            let b = QuizButton(title: option)
+            b.heightAnchor.constraint(equalToConstant: optionButtonHeight).isActive = true
+            optionsStack.addArrangedSubview(b)
+            b.layoutIfNeeded()
+        }
         playAgainButton.isHidden = true
     }
     
     func displayScore() {
         // Hide the answer uttons
-        trueButton.isHidden = true
-        falseButton.isHidden = true
+        // trueButton.isHidden = true
+        // falseButton.isHidden = true
         
         // Display play again button
         playAgainButton.isHidden = false
@@ -109,7 +122,7 @@ class ViewController: UIViewController {
         
         let item = trivia.items[indexOfSelectedQuestion]
         let correctAnswer = item.answer
-        
+        /*
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             correctQuestions += 1
             questionField.text = "Correct!"
@@ -118,13 +131,14 @@ class ViewController: UIViewController {
         }
         
         loadNextRound(delay: 2)
+        */
     }
     
     
     @IBAction func playAgain(_ sender: UIButton) {
         // Show the answer buttons
-        trueButton.isHidden = false
-        falseButton.isHidden = false
+        // trueButton.isHidden = false
+        // falseButton.isHidden = false
         
         questionsAsked = 0
         correctQuestions = 0

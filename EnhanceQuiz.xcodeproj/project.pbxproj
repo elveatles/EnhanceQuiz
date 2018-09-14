@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09849F49214B27110057CAC7 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09849F48214B27110057CAC7 /* Trivia.swift */; };
+		09849F49214B27110057CAC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09849F48214B27110057CAC7 /* Quiz.swift */; };
+		09849F51214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 09849F4D214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png */; };
+		09849F52214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 09849F4E214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png */; };
+		09849F53214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 09849F4F214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png */; };
+		09849F54214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 09849F50214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png */; };
+		09849F56214C3CEB0057CAC7 /* QuizButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09849F55214C3CEB0057CAC7 /* QuizButton.swift */; };
+		09849F58214C59690057CAC7 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09849F57214C59690057CAC7 /* Question.swift */; };
+		09849F5A214C5A1C0057CAC7 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09849F59214C5A1C0057CAC7 /* QuizManager.swift */; };
 		098D912D214AE7DD00495BCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098D912C214AE7DD00495BCD /* Default-568h@2x.png */; };
 		972A72B12056F06C0059EF4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A72B02056F06C0059EF4A /* AppDelegate.swift */; };
 		972A72B32056F06C0059EF4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A72B22056F06C0059EF4A /* ViewController.swift */; };
@@ -18,7 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09849F48214B27110057CAC7 /* Trivia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		09849F48214B27110057CAC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		09849F4D214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png"; sourceTree = "<group>"; };
+		09849F4E214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png"; sourceTree = "<group>"; };
+		09849F4F214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png"; sourceTree = "<group>"; };
+		09849F50214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png"; sourceTree = "<group>"; };
+		09849F55214C3CEB0057CAC7 /* QuizButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizButton.swift; sourceTree = "<group>"; };
+		09849F57214C59690057CAC7 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		09849F59214C5A1C0057CAC7 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 		098D912C214AE7DD00495BCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		972A72AD2056F06C0059EF4A /* EnhanceQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnhanceQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		972A72B02056F06C0059EF4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +55,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09849F4C214B2F520057CAC7 /* QuizMockups */ = {
+			isa = PBXGroup;
+			children = (
+				09849F4D214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png */,
+				09849F4E214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png */,
+				09849F4F214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png */,
+				09849F50214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png */,
+			);
+			name = QuizMockups;
+			path = ../../QuizMockups;
+			sourceTree = "<group>";
+		};
 		972A72A42056F06C0059EF4A = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +87,7 @@
 		972A72AF2056F06C0059EF4A /* EnhanceQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				09849F4C214B2F520057CAC7 /* QuizMockups */,
 				972A72B02056F06C0059EF4A /* AppDelegate.swift */,
 				972A72B22056F06C0059EF4A /* ViewController.swift */,
 				972A72B42056F06C0059EF4A /* Main.storyboard */,
@@ -68,7 +95,10 @@
 				972A72B92056F06C0059EF4A /* LaunchScreen.storyboard */,
 				972A72BC2056F06C0059EF4A /* Info.plist */,
 				972A72C22056F0E40059EF4A /* GameSound.wav */,
-				09849F48214B27110057CAC7 /* Trivia.swift */,
+				09849F48214B27110057CAC7 /* Quiz.swift */,
+				09849F59214C5A1C0057CAC7 /* QuizManager.swift */,
+				09849F55214C3CEB0057CAC7 /* QuizButton.swift */,
+				09849F57214C59690057CAC7 /* Question.swift */,
 			);
 			path = EnhanceQuiz;
 			sourceTree = "<group>";
@@ -134,8 +164,12 @@
 			files = (
 				972A72C32056F0E40059EF4A /* GameSound.wav in Resources */,
 				972A72BB2056F06C0059EF4A /* LaunchScreen.storyboard in Resources */,
+				09849F53214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-02.png in Resources */,
 				972A72B82056F06C0059EF4A /* Assets.xcassets in Resources */,
 				098D912D214AE7DD00495BCD /* Default-568h@2x.png in Resources */,
+				09849F51214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-04.png in Resources */,
+				09849F52214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-01.png in Resources */,
+				09849F54214B2F520057CAC7 /* iOS-Techdegree-Enhance-a-Quiz-App-assets-03.png in Resources */,
 				972A72B62056F06C0059EF4A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,8 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09849F58214C59690057CAC7 /* Question.swift in Sources */,
+				09849F56214C3CEB0057CAC7 /* QuizButton.swift in Sources */,
 				972A72B32056F06C0059EF4A /* ViewController.swift in Sources */,
-				09849F49214B27110057CAC7 /* Trivia.swift in Sources */,
+				09849F49214B27110057CAC7 /* Quiz.swift in Sources */,
+				09849F5A214C5A1C0057CAC7 /* QuizManager.swift in Sources */,
 				972A72B12056F06C0059EF4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
