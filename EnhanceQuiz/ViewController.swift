@@ -41,6 +41,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        playAgainButton.layer.cornerRadius = 10
+        
         quizManager.startQuiz()
         
         loadGameStartSound()
