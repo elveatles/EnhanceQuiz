@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     var gameSound: SystemSoundID = 0
+    var correctSound: SystemSoundID = 0
+    var incorrectSound: SystemSoundID = 0
     var optionButtons: [UIButton] = []
     let optionButtonHeight: CGFloat = 40
     
@@ -47,6 +49,7 @@ class ViewController: UIViewController {
         
         loadGameStartSound()
         playGameStartSound()
+        loadGameSounds()
         displayQuestion()
     }
     
@@ -56,6 +59,16 @@ class ViewController: UIViewController {
         let path = Bundle.main.path(forResource: "GameSound", ofType: "wav")
         let soundUrl = URL(fileURLWithPath: path!)
         AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSound)
+    }
+    
+    func loadGameSounds() {
+        var path = Bundle.main.path(forResource: "music_box", ofType: "wav")
+        var soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &correctSound)
+        
+        path = Bundle.main.path(forResource: "fail_buzzer", ofType: "wav")
+        soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &incorrectSound)
     }
     
     func playGameStartSound() {
@@ -120,10 +133,12 @@ class ViewController: UIViewController {
             // Show "Correct!" if correct answer was chosen
             answerField.text = "Correct!"
             answerField.textColor = UIColor(red: 0.0, green: 152.0/255.0, blue: 138.0/255.0, alpha: 1.0)
+            AudioServicesPlaySystemSound(correctSound)
         } else {
             // Show the correct answer if an incorrect answer was chosen
             answerField.text = "Incorrect. Answer is: \(question.answer)"
             answerField.textColor = UIColor(red: 1.0, green: 87.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+            AudioServicesPlaySystemSound(incorrectSound)
         }
         
         // Dim all buttons except for the one that was selected
