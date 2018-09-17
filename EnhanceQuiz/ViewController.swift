@@ -200,7 +200,7 @@ class ViewController: UIViewController {
         } else {
             // Show the correct answer if an incorrect answer was chosen
             answerField.text = "Incorrect. Answer is: \(question.answer)"
-            answerField.textColor = UIColor(red: 1.0, green: 87.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+            answerField.textColor = UIColor(red: 1.0, green: 157.0/255.0, blue: 83.0/255.0, alpha: 1.0)
             AudioServicesPlaySystemSound(incorrectSound)
         }
         
