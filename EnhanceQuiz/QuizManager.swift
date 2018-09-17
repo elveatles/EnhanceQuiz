@@ -11,9 +11,12 @@ import GameKit
 /// Manages the question and answer process of taking a Quiz.
 class QuizManager {
     let questionsPerRound = 4
+    let secondsPerRound = 15
     var correctQuestions = 0
     var indexOfSelectedQuestion = 0
     var quiz = Quiz()
+    var timer: Timer?
+    var secondsLeft = 15
     
     /// Initialize with a Quiz ready to go
     init() {
@@ -28,6 +31,7 @@ class QuizManager {
     func startQuiz() {
         indexOfSelectedQuestion = 0
         correctQuestions = 0
+        secondsLeft = secondsPerRound
         // Shuffle all the questions
         quiz.availableQuestions = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: quiz.availableQuestions) as! [Question]
     }
