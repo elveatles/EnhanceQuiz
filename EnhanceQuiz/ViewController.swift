@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
+    let buttonHeight: CGFloat = 60
     var gameSound: SystemSoundID = 0
     var correctSound: SystemSoundID = 0
     var incorrectSound: SystemSoundID = 0
@@ -140,6 +141,8 @@ class ViewController: UIViewController {
         optionButtons = []
         for option in question.options {
             let b = QuizButton(title: option)
+            b.translatesAutoresizingMaskIntoConstraints = false
+            b.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
             b.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
             optionsStack.addArrangedSubview(b)
             optionButtons.append(b)
