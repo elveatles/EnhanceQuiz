@@ -149,6 +149,7 @@ class ViewController: UIViewController {
     
     func displayScore() {
         // Hide/reveal views
+        answerField.isHidden = true
         optionsStack.isHidden = true
         lightningModeLabel.isHidden = false
         lightningModeSwitch.isHidden = false
